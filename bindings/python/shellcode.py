@@ -99,7 +99,7 @@ def hook_intr(uc, intno, user_data):
         except UcError as e:
             print(">>> 0x%x: interrupt 0x%x, SYS_WRITE. buffer = 0x%x, size = %u, content = <unknown>\n" \
                         %(eip, intno, ecx, edx))
-    elif eax == 11:    # sys_write
+    elif eax == 11:    # sys_execve
         ebx = uc.reg_read(UC_X86_REG_EBX)
         filename = read_string(uc, ebx)
         print(">>> SYS_EXECV filename=%s" % filename)
